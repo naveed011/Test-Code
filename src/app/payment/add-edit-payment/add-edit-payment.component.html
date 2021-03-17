@@ -1,0 +1,38 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="submitform(form)">
+
+    <div class="form group">
+        <input type="hidden" name="paymentDetailId" [value]="service.formData.paymentDetailId" />
+        <label class="col-from-label" >
+            Card Owner Name
+        </label>
+        <input type="text" class="form-control" #CardOwner="ngModel" [(ngModel)]="service.formData.CardOwner"
+            placeholder="Full Name" value="form.CardOwner" name="cardOwnerName" required [class.invalid]="CardOwner.invalid && CardOwner.touched">
+    </div>
+
+    <div class="form group">
+        <label class="col-from-label">
+            Card Number
+        </label>
+        <input type="text" class="form-control"  #CardNumber="ngModel" [(ngModel)]="service.formData.CardNumber"
+            placeholder="16 Digit Card Number" name="cardNumber" required maxlength="16" minlength="16" [class.invalid]="CardNumber.invalid && CardNumber.touched">
+    </div>
+
+    <div class="form group">
+        <label class="col-from-label">
+            Security Code
+        </label>
+        <input type="text" class="form-control" #SecurityCode="ngModel" [(ngModel)]="service.formData.SecurityCode"
+            placeholder="Security Code"  name="securityCode" required maxlength="3" minlength="3"  [class.invalid]="SecurityCode.invalid && SecurityCode.touched">
+
+        <label class="col-from-label">
+            Valid Through
+        </label>
+        <input type="text" class="form-control" #ExpDate="ngModel" [(ngModel)]="service.formData.ExpDate"
+            placeholder="Valid Through" name="expirationDate" required  maxlength="5" minlength="5" [class.invalid]="ExpDate.invalid && ExpDate.touched">
+    </div>
+
+    <div class="form-group pt-3">
+        <button class="btn btn-success" type="submit" [disabled]=form.invalid>ADD</button>
+        <!-- <button class="btn btn-success" (click)= "postFormData()"  *ngIf="service.formData.paymentDetailId == 0"  >Add</button> -->
+    </div>
+</form>
