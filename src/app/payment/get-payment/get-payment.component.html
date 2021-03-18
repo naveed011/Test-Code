@@ -19,6 +19,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>Image</th>
             <th>CardOwner</th>
             <th>Card Name</th>
             <th>ExpiryDate</th>
@@ -28,14 +29,18 @@
     </thead>
     <tbody>
         <tr *ngFor ="let dataItem of FormData">
+            <td></td>
             <td (click)="editClick(dataItem)">{{dataItem.CardOwner}}</td>
             <td (click)="editClick(dataItem)">{{dataItem.CardNumber}}</td>
             <td (click)="editClick(dataItem)">{{dataItem.ExpDate}}</td>
             <td (click)="editClick(dataItem)">{{dataItem.SecurityCode}}</td>
             <td>
-                <button type="button" class="btn btn-danger" (click) = "onDelete(dataItem.PaymentId)"  >
-                DELETE
-                </button>
+                <a   (click) = "onDelete(dataItem.PaymentId)" style="background: transparent;border: none;color: red; cursor: pointer;" >
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>/
+                <a  [routerLink]="['/paymentDetail', dataItem.PaymentId]"  routerLinkActive="active" style="background: transparent;border: none;color: red;cursor: pointer;" >
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
             </td>
         </tr>
     </tbody>

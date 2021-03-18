@@ -5,4 +5,5 @@ export class PaymentDetail{
   CardNumber: string = '';
   ExpDate: string = '';
   SecurityCode: string = '';
+  Image: string = '';
 }

@@ -10,6 +10,7 @@ export class GetPaymentComponent implements OnInit {
 
   constructor(private service:SharedService) { }
   FormData:any =[];
+  PhtotoFilePath:string = '';
 
   form:any;
 
@@ -24,6 +25,7 @@ export class GetPaymentComponent implements OnInit {
   refreshPaymentList(){
     this.service.getPaymentList().subscribe( data=>{
         this.FormData = data;
+        this.PhtotoFilePath = this.service.PhotoURL;
     });
   }
   

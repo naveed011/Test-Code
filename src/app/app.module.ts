@@ -9,6 +9,9 @@ import { SharedService } from './shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { AddEditPaymentComponent } from './payment/add-edit-payment/add-edit-payment.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ViewPaymentByIdComponent } from './payment/view-payment-by-id/view-payment-by-id.component';
+
 
 
 
@@ -17,14 +20,16 @@ import { AddEditPaymentComponent } from './payment/add-edit-payment/add-edit-pay
   declarations: [
     AppComponent,
     GetPaymentComponent,
-    AddEditPaymentComponent
+    AddEditPaymentComponent,
+    PaymentComponent,
+    ViewPaymentByIdComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

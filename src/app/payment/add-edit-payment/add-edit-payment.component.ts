@@ -37,13 +37,16 @@ export class AddEditPaymentComponent implements OnInit {
   }
 
   insertRecord(form: NgForm){
-    
     this.service.postFormData().subscribe(res=>{
       this.resetForm(form);
       this.service.onFirstComponentButtonClick();
     });
-
   }
+
+  // uploadPhoto(event){
+  //   var file = event.target.files[0];
+  //   this.service.formData;
+  // }
 
   resetForm(form: NgForm) {
     form.form.reset();
